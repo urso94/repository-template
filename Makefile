@@ -6,3 +6,4 @@ install: ## Installa il progetto
 	cp -n backend/.env.example backend/.env || true
 	docker-compose run --rm -u dev fpm composer install
 	docker-compose run --rm -u dev fpm php artisan migrate --seed
+	docker compose run --rm -u 1000:1000 node npm i
