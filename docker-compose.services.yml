@@ -28,3 +28,6 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-p$$MYSQL_ROOT_PASSWORD" ]
       retries: 3
       timeout: 5s
+  node:
+    image: node:20.5-alpine
+    working_dir: /app

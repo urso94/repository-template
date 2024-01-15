@@ -17,3 +17,10 @@ services:
       file: ./docker-compose.services.yml
     volumes:
       - ./.docker/mysql:/docker-entrypoint-initdb.d
+  node:
+    extends:
+      service: node
+      file: docker-compose.services.yml
+    volumes:
+      - ./frontend:/app
+    command: npm run dev
