@@ -3,3 +3,6 @@ help:
 
 install: ## Installa il progetto
 	cp -n .env.example .env || true
+	cp -n backend/.env.example backend/.env || true
+	docker-compose run --rm -u dev fpm composer install
+	docker-compose run --rm -u dev fpm php artisan migrate --seed
