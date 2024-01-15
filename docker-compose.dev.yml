@@ -1,0 +1,19 @@
+services:
+  nginx:
+    extends:
+      service: nginx
+      file: ./docker-compose.services.yml
+    volumes:
+      - ./.docker/nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
+  fpm:
+    extends:
+      service: fpm
+      file: ./docker-compose.services.yml
+    build:
+      target: dev
+  mysql:
+    extends:
+      service: mysql
+      file: ./docker-compose.services.yml
+    volumes:
+      - ./.docker/mysql:/docker-entrypoint-initdb.d
